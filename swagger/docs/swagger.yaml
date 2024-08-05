@@ -1,0 +1,24 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server.
+  title: Example API
+  version: "1.0"
+paths:
+  /hello:
+    get:
+      consumes:
+      - application/json
+      description: get string "Hello World"
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Hello World
+          schema:
+            type: string
+      summary: Show a Hello World message
+      tags:
+      - example
+swagger: "2.0"
