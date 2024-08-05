@@ -1,12 +1,12 @@
-#How to config API documentation for go HTTP-server 
+# How to config API documentation for go HTTP-server 
 
-##Step 1:
+## Step 1:
 Before starting need to check have you swaggo and install if not:
 ```bash
 go get -u github.com/swaggo/swag/cmd/swag
 ```
 
-##Step 2:
+## Step 2:
 Configure API and endpoints with next comments:
 ```go
 main.go:
@@ -28,7 +28,7 @@ anyHandler:
 // @Router /endpoint [get]
 ```
 
-##Step 3:
+## Step 3:
 Download swagger files for correctly view swagger-panel:
 ```bash
 curl -o swagger/docs/swagger-initializer.js https://raw.githubusercontent.com/swagger-api/swagger-ui/master/dist/swagger-initializer.js
@@ -39,13 +39,13 @@ curl -o swagger/docs/swagger-ui-standalone-preset.js https://raw.githubuserconte
 ```
 Need to change url in file "../swagger/docs/swagger-initializer.js" from default to your url: "swagger.json"
 
-##Step 4:
+## Step 4:
 Generate docs for your API:
 ```bash
 swag init -g main.go
 ```
 
-##Step 5:
+## Step 5:
 Relocate generated files:
 ```bash
 mkdir -p swagger/docs
@@ -53,7 +53,7 @@ cp -r docs/* swagger/docs/
 rm docs
 ```
 
-##Step 6:
+## Step 6:
 Start server:
 ```bash
 go run main.go
