@@ -1,4 +1,4 @@
-# How to config API documentation for go HTTP-server 
+# How to config API documentation for golang HTTP-server 
 
 ## Step 1:
 Before starting need to check have you swaggo and install if not:
