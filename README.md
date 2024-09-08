@@ -1,13 +1,13 @@
-# How to config API documentation for golang HTTP-server 
+# **How to Set Up API Documentation in a Golang HTTP Server**
 
-## Step 1:
-Before starting need to check have you swaggo and install if not:
+# 1. **Before You Start, Check if You Have Swaggo and Install It If Not:**
+
 ```bash
 go get -u github.com/swaggo/swag/cmd/swag
 ```
 
-## Step 2:
-Configure API and endpoints with next comments:
+# 2. **Set Up API and Endpoints with the Following Comments:**
+
 ```go
 main.go:
 // @title Example API
@@ -16,6 +16,7 @@ main.go:
 // @host localhost:8080
 // @BasePath /
 ```
+
 ```go
 anyHandler:
 // anyHandler godoc
@@ -28,8 +29,8 @@ anyHandler:
 // @Router /endpoint [get]
 ```
 
-## Step 3:
-Download swagger files for correctly view swagger-panel:
+# 3. **Download Swagger Files for Correct Swagger UI Viewing:**
+
 ```bash
 curl -o swagger/docs/swagger-initializer.js https://raw.githubusercontent.com/swagger-api/swagger-ui/master/dist/swagger-initializer.js
 curl -o swagger/docs/index.html https://raw.githubusercontent.com/swagger-api/swagger-ui/master/dist/index.html
@@ -37,26 +38,27 @@ curl -o swagger/docs/swagger-ui.css https://raw.githubusercontent.com/swagger-ap
 curl -o swagger/docs/swagger-ui-bundle.js https://raw.githubusercontent.com/swagger-api/swagger-ui/master/dist/swagger-ui-bundle.js
 curl -o swagger/docs/swagger-ui-standalone-preset.js https://raw.githubusercontent.com/swagger-api/swagger-ui/master/dist/swagger-ui-standalone-preset.js
 ```
-Need to change url in file "../swagger/docs/swagger-initializer.js" from default to your url: "swagger.json"
 
-## Step 4:
-Generate docs for your API:
+***You need to change the URL in the file "../swagger/docs/swagger-initializer.js" from the default value to your URL: "swagger.json"***
+
+# 4. **Generate Documentation for Your API:**
+
 ```bash
 swag init -g main.go
 ```
 
-## Step 5:
-Relocate generated files:
+# 5. **Move the Generated Files:**
+
 ```bash
 mkdir -p swagger/docs
 cp -r docs/* swagger/docs/
-rm docs
+rm -r docs
 ```
 
-## Step 6:
-Start server:
+# 6. **Start the Server:**
+
 ```bash
 go run main.go
 ```
-For check documentation use path:
-http://localhost:8080/swagger/
+
+***To check the documentation, use the path:*** http://localhost:8080/swagger/
